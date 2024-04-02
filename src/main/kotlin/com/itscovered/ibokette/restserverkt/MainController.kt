@@ -1,6 +1,7 @@
 package com.itscovered.ibokette.restserverkt
 
 import org.springframework.web.bind.annotation.*
+import java.time.LocalDateTime
 
 @RestController
 class MainController {
@@ -13,7 +14,7 @@ class MainController {
     @PostMapping("/")
     fun postData(@RequestBody payload: WebhookEntity,
                  @RequestHeader headers: Map<String, String>) {
-        println("Got webhook: $payload")
-        println("Got headers: $headers")
+        println("""${LocalDateTime.now()}: Got webhook: $payload""")
+        println("""${LocalDateTime.now()}: Got headers: $headers""")
     }
 }
